@@ -1,6 +1,5 @@
 import csv
 import bisect
-import time
 import operator
 
 tote_length = 45
@@ -9,7 +8,7 @@ tote_height = 35
 tote_capacity = tote_length*tote_width*tote_height
 sorted_tote_dimensions = [30, 35, 45]
 
-# check if individual product fit into the tote. 
+#check if individual product fit into the tote. 
 def is_fit(length, width, height, volume):
 	sorted_product_dimensions = sorted([length, width, height])
 
@@ -41,7 +40,7 @@ def find_shortlist(items):
 
 	return shortlist_items
 
-# find optimal combination (max total prices) of products that can be put into the tote using dynamic programming
+#find optimal combination (max total prices) of products that can be put into the tote using dynamic programming
 def find_optimal_product_combination(items):
 	combinations = {tote_capacity: {'productIDs': (), 'total_price': 0, 'total_weight': 0}}
 	sorted_combinations_keys = [tote_capacity] 
@@ -89,12 +88,12 @@ with open('products.csv', 'rb') as f:
 			item = {'productID': productID, 'price': price, 'volume': volume, 'weight': weight}
 			items.append(item)
 
-start = time.time()
+#reduce the search range and find best product combination using dynamic programming
 shortlist_items = find_shortlist(items)
 optimal_combination = find_optimal_product_combination(shortlist_items)
-sum_IDs = 0
 
+#calculate the sum of product IDs of all the products 
+sum_IDs = 0
 for ID in optimal_combination['productIDs']:
 	sum_IDs = sum_IDs + ID
-
 print(sum_IDs)
