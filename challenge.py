@@ -91,7 +91,10 @@ with open('products.csv', 'rb') as f:
 
 start = time.time()
 shortlist_items = find_shortlist(items)
-print len(shortlist_items)
-print find_optimal_product_combination(shortlist_items)
-end = time.time()
-print(end - start)
+optimal_combination = find_optimal_product_combination(shortlist_items)
+sum_IDs = 0
+
+for ID in optimal_combination['productIDs']:
+	sum_IDs = sum_IDs + ID
+
+print(sum_IDs)
