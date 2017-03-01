@@ -1,2 +1,2 @@
-The solution to the MENU "1,000,000th Customer Prize" programming challenge written in Python 2.7._
+The solution to the MENU "1,000,000th Customer Prize" programming challenge written in Python 2.7.  
 The problem description can be found here: http://geeks.redmart.com/2015/10/26/1000000th-customer-prize-another-programming-challenge/.
