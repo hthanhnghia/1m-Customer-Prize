@@ -18,10 +18,10 @@ def is_fit(length, width, height, volume):
 		return False
 
 '''
-This function helps to reduce the search range and running time drammatically. We find the possible max_no_products 
+This function helps to reduce the search range and running time dramatically. We find the possible max_no_products 
 (maximum number of products) the tote can contain, which is equal to tote_capacity/min_volume (min_volume is the 
 volume of the smallest-size product). We then shortlist only the product which has less than n other better products 
-(n = max_no_products). The better criteria is defined as SMALLER VOLUME and HIGHER PRICE.
+(n = max_no_products). The better metric is defined as SMALLER VOLUME and HIGHER PRICE.
 '''
 def find_shortlist(items):
 	items = sorted(items, key = operator.itemgetter('volume', 'price'))
